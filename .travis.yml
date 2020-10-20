@@ -6,15 +6,15 @@ before_install:
 script:
     - docker run -e CI=true mr/react-test npm run test
 after_success:
-    - docker build -t mr/multi-client ./client
-    - docker build -t mr/multi-server ./server
-    - docker build -t mr/multi-nginx ./nginx
-    - docker build -t mr/multi-worker ./worker 
+    - docker build -t ishaqca/multi-client ./client
+    - docker build -t ishaqca/multi-server ./server
+    - docker build -t ishaqca/multi-nginx ./nginx
+    - docker build -t ishaqca/multi-worker ./worker 
 # Login to docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # take those images and push them to docker hub
-    - docker push mr/multi-client
-    - docker push mr/multi-server
-    - docker push mr/multi-nginx
-    - docker push mr/multi-worker   
+    - docker push ishaqca/multi-client
+    - docker push ishaqca/multi-server
+    - docker push ishaqca/multi-nginx
+    - docker push ishaqca/multi-worker   
 
