@@ -16,5 +16,15 @@ after_success:
     - docker push ishaqca/multi-client
     - docker push ishaqca/multi-server
     - docker push ishaqca/multi-nginx
-    - docker push ishaqca/multi-worker   
-
+    - docker push ishaqca/multi-worker  
+# deploy to AWS EB
+    provider: elasticbeanstalk
+    region: 'us-east-2'
+    app: 'multi-docker'
+    env: 'MultiDocker-env'
+    bucket_name: 'elasticbeanstalk-us-east-2-330943595153'
+    bucket_path: 'docker-multi'
+    on:
+       branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
