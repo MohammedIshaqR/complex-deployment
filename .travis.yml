@@ -18,6 +18,7 @@ after_success:
     - docker push ishaqca/multi-nginx
     - docker push ishaqca/multi-worker  
 # deploy to AWS EB
+deploy:
     provider: elasticbeanstalk
     region: 'us-east-2'
     app: 'multi-docker'
